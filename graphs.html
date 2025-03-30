@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Visualizations | Sleep & Recovery</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Final Visualizations</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="initial_data.html">Initial Data</a>
+      <a href="graphs.html" class="active">Data Visualizations</a>
+      <a href="conclusion.html">Conclusion</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Our Visualizations</h2>
+
+      <!-- Figure 1 -->
+      <h3>Figure 1: Sleep Correlation Heatmap</h3>
+      <div class="image-rows">
+        <div class="image-frame-dark">
+          <img src="images/2.png" alt="Correlation Heatmap">
+        </div>
+      </div>
+      <p><strong>Purpose and Methodology Behind the Visualization:</strong> This heatmap was created to identify which metrics are most relevant and impactful to sleep-related factors, helping guide the focus for later visualizations and modeling. Before generating the heatmap, we first calculated the correlations between all available variables and filtered for those with a correlation coefficient greater than ±0.6. From there, we narrowed the selection further to focus specifically on variables directly related to sleep quality and recovery.</p>
+      <p><strong>What It Shows:</strong> Stronger correlations are shaded darker red (positive) or blue (negative). Sleep-related variables (like Light sleep, Asleep duration, and Sleep performance) are highlighted in purple on the axis labels. Cardiovascular indicators like Heart rate variability (HRV), Resting heart rate, and Workout Avg HR were compared to these sleep metrics.</p>
+      <p><strong>Key Insights:</strong>
+        <ul>
+          <li>Light sleep is moderately correlated with HRV (0.48) and Recovery score (0.30), suggesting it plays a role in cardiovascular recovery.</li>
+          <li>Resting heart rate and Workout Avg HR show strong negative correlations with HRV and several sleep metrics, indicating that higher heart strain may lead to lower recovery and sleep quality.</li>
+        </ul>
+      </p>
+
+      <!-- Figure 2 (Altair interactive) -->
+      <h3>Figure 2: Resting Heart Rate and Light Sleep Duration</h3>
+      <div style="display: flex; justify-content: center; margin: 20px 0;">
+        <iframe src="graph2.html" width="100%" height="600" style="border:none; border-radius: 8px;"></iframe>
+      </div>
+      <p>This visualization explores the relationship between resting heart rate (RHR) and light sleep duration, with recovery score % represented through color intensity. These metrics are all associated with sleep quality and recovery physiology, providing insight into how these variables interact.</p>
+      <p><strong>Key Insights from the Chart:</strong>
+        <ul>
+          <li>Clear negative correlation: as resting heart rate increases, light sleep duration tends to decrease.</li>
+          <li>Recovery score gradients indicate better recovery in individuals with lower RHR and longer light sleep.</li>
+          <li>Most common RHR range: 40–60 bpm for the population sampled.</li>
+        </ul>
+      </p>
+
+      <!-- Figure 3 (Altair interactive) -->
+      <h3>Figure 3: HRV and Light Sleep Duration</h3>
+      <div style="display: flex; justify-content: center; margin: 20px 0;">
+        <iframe src="graph3.html" width="100%" height="600" style="border:none; border-radius: 8px;"></iframe>
+      </div>
+      <p>This visualization was created to explore the relationship between heart rate variability (HRV) and light sleep duration, with the added dimension of recovery score % shown through color intensity.</p>
+      <p><strong>Key Insights from the Chart:</strong>
+        <ul>
+          <li>Positive trend between HRV and light sleep — higher HRV is linked to more light sleep.</li>
+          <li>Higher recovery scores cluster in the top-right (higher HRV and more light sleep).</li>
+          <li>Light sleep may be a meaningful contributor to overnight cardiovascular recovery.</li>
+        </ul>
+      </p>
+
+      <!-- Figure 4 -->
+      <h3>Figure 4: Zone 5 Activity and Sleep Stage Averages</h3>
+      <div class="image-rows">
+        <div class="image-frame-dark">
+          <img src="images/5.png" alt="Zone 5 Sleep Stage Averages">
+        </div>
+      </div>
+
+      <!-- Figure 5 -->
+      <h3>Figure 5: HRV Across Sleep Stage Groupings</h3>
+      <div class="image-rows">
+        <div class="image-frame-dark">
+          <img src="images/6.png" alt="HRV Sleep Stage Groups">
+        </div>
+      </div>
+      <p>This visualization shows how HRV varies depending on whether someone’s REM, Deep, or Light sleep percentage was classified as Below Normal, Normal, or Above Normal.</p>
+      <p><strong>Key Insights:</strong>
+        <ul>
+          <li>REM: HRV is lowest when REM is above normal — possibly a sign of imbalance or overcompensation.</li>
+          <li>Deep: HRV is lowest in Above Normal groups — suggesting more is not always better.</li>
+          <li>Light: HRV is highest when light sleep is above normal, supporting its link to recovery.</li>
+        </ul>
+      </p>
+
+      <!-- Figure 6 -->
+      <h3>Figure 6: Random Forest — Zone 5 Time vs. Sleep Duration</h3>
+      <div class="image-rows">
+        <div class="image-frame-dark">
+          <img src="images/7.png" alt="HRV Sleep Stage Groups">
+        </div>
+      </div>
+      <p>This chart uses a Random Forest model to predict how time spent in HR Zone 5 (high-intensity cardio) influences the duration of REM, Deep, and Light sleep.</p>
+      <p><strong>Key Insights:</strong>
+        <ul>
+          <li>~10–11 minutes of Zone 5 activity optimized REM and Deep sleep.</li>
+          <li>Light sleep peaked around 6 minutes, but plateaued with more.</li>
+          <li>Too much Zone 5 time may reduce sleep duration in some stages — indicating a "sweet spot."</li>
+        </ul>
+      </p>
+
+    </section>
+  </main>
+</body>
+</html>
+        

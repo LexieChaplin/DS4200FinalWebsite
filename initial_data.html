@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Initial Data Analysis | Sleep & Recovery</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Initial Sleep and Activity Data Analysis</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="initial_data.html" class="active">Initial Data</a>
+      <a href="graphs.html">Data Visualizations</a>
+      <a href="conclusion.html">Conclusion</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Overview of Visualization Methodology</h2>
+      <p>The initial set of visualizations in this project used standard exploratory data analysis techniques to examine relationships between sleep metrics and lifestyle factors. We created a custom sleep efficiency metric combining sleep hours and sleep quality scores to better represent overall performance. However, the majority of initial visualizations revealed a lack of statistically significant trends.</p>
+    </section>
+
+    <section>
+      <h2>Findings from Initial Visualizations</h2>
+
+      <h3>Sleep Hours Distribution by Day of Week</h3>
+      <div class="image-rows">
+        <div class="image-frame-dark">
+        <img src="images/BadBox.png" alt="Bad Box Plot">
+      </div>
+    </div>
+      <p>Box plots showed consistent sleep patterns across all days, with median values around 7 hours and very little variation. This suggested that day of week did not impact sleep duration in the dataset.</p>
+
+      <h3>Exercise and Sleep Quality Relationship</h3>
+      <div class="image-rows">
+        <div class="image-frame-dark">
+        <img src="images/Bad2.png" alt="Bad 2">
+      </div>
+    </div>
+      <p>Scatter plots revealed no correlation between exercise duration and sleep quality. Data points were evenly distributed across all ranges, with no consistent pattern linked to mood scores.</p>
+
+      <h3>Screen Time and Sleep Efficiency</h3>
+      <div class="image-rows">
+        <div class="image-frame-dark">
+        <img src="images/Bad3.png" alt="Bad 3">
+      </div>
+    </div>
+      <p>Contrary to expectations, screen time before bed did not appear to influence sleep efficiency. The scatter plot showed no downward trend, and the points were widely scattered regardless of screen time duration.</p>
+
+      <h3>Caffeine Intake and Sleep Efficiency</h3>
+      <div class="image-rows">
+        <div class="image-frame-dark">
+        <img src="images/Bad4.png" alt="Bad 4">
+      </div>
+    </div>
+      <p>Similar to screen time, caffeine consumption showed no clear relationship with sleep efficiency. Data points and the trend line fluctuated unpredictably, indicating no meaningful pattern.</p>
+
+      <h3>Work Hours & Sleep Efficiency Across Productivity Scores</h3>
+      <div class="image-rows">
+        <div class="image-frame-dark">
+        <img src="images/Bad5.png" alt="Bad 5">
+      </div>
+    </div>
+      <p>One notable finding came from a dual-axis line chart: productivity scores of 10 were associated with higher sleep efficiency and fewer work hours. This suggests sleep quality may play a greater role in productivity than total time spent working.</p>
+    </section>
+
+    <section>
+      <h2>Conclusion: Why We Transitioned Datasets</h2>
+      <p>The overall lack of strong correlations indicated that the original dataset—being artificially generated—failed to capture realistic physiological relationships. This led us to transition to authentic WHOOP data, which spans multiple users over several years and includes more precise sleep and recovery metrics. We expected the real-world data to reveal more nuanced and meaningful patterns between sleep and lifestyle behavior.</p>
+    </section>
+  </main>
+</body>
+</html>
