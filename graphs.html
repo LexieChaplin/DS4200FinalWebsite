@@ -28,8 +28,8 @@
           <img src="2.png" alt="Correlation Heatmap">
         </div>
       </div>
-      <p><strong>Purpose and Methodology Behind the Visualization:</strong> This heatmap was created to identify which metrics are most relevant and impactful to sleep-related factors, helping guide the focus for later visualizations and modeling. Before generating the heatmap, we first calculated the correlations between all available variables and filtered for those with a correlation coefficient greater than ±0.6. From there, we narrowed the selection further to focus specifically on variables directly related to sleep quality and recovery.</p>
-      <p><strong>What It Shows:</strong> Stronger correlations are shaded darker red (positive) or blue (negative). Sleep-related variables (like Light sleep, Asleep duration, and Sleep performance) are highlighted in purple on the axis labels. Cardiovascular indicators like Heart rate variability (HRV), Resting heart rate, and Workout Avg HR were compared to these sleep metrics.</p>
+      <p><strong>Purpose and Methodology Behind the Visualization:</strong> This heatmap was created to identify which metrics are most relevant and impactful to sleep-related factors, helping guide the focus for later visualizations and modeling. Before generating the heatmap, we first calculated the correlations between all available variables and filtered for those with a correlation coefficient greater than ±0.6. From there, we narrowed the selection further to specifically get variables directly related to sleep quality and recovery.</p>
+      <p><strong>What It Shows & Design Ideas:</strong> Stronger correlations are shaded darker red (positive) or blue (negative). Sleep-related variables (like Light sleep, Asleep duration, and Sleep performance) are highlighted in purple on the axis labels. Cardiovascular indicators like Heart rate variability (HRV), Resting heart rate, and Workout Avg HR were compared to these sleep metrics.</p>
       <p><strong>Key Insights:</strong>
         <ul>
           <li>Light sleep is moderately correlated with HRV (0.48) and Recovery score (0.30), suggesting it plays a role in cardiovascular recovery.</li>
@@ -42,12 +42,14 @@
       <div style="display: flex; justify-content: center; margin: 20px 0;">
         <iframe src="graph2.html" width="100%" height="600" style="border:none; border-radius: 8px;"></iframe>
       </div>
-      <p>This visualization explores the relationship between resting heart rate (RHR) and light sleep duration, with recovery score % represented through color intensity. These metrics are all associated with sleep quality and recovery physiology, providing insight into how these variables interact.</p>
+      <p><strong>Purpose and Methodology Behind the Visualization:</strong>  We chose to focus on light sleep because the heat map showed a correlation between RHR and light sleep duration. According to research from WHOOP, light sleep is the stage where your body begins to relax: muscles loosen, body temperature drops, and brain activity slows. This stage plays a crucial role supporting memory consolidation, motor skill learning, and emotional regulation. Chronic deficiencies of light sleep have been associated with high blood pressure, heart disease, obesity, and depression. In parallel, resting heart rate is a well-established marker of cardiovascular efficiency and general fitness. Lower RHR values often indicate a stronger, more efficient heart, while elevated RHR is commonly associated with stress and overtraining. </p>
+      <p><strong>What It Shows & Design Ideas:</strong> overtraining. 
+        The goal of this interactive scatterplot was to show three important physiological factors in a single view for easy pattern recognition. The scatterplot layout emphasizes the negative correlation between RHR and light sleep. The blue colors, are calming like sleep, and were intentionally selected for recovery score. Darker shades show higher recovery scores and help the viewer quickly see attribute better recovery with longer light sleep and lower resting heart rates. We chose to do radio binding so that people could explore the recovery scores individually.</p>
       <p><strong>Key Insights from the Chart:</strong>
         <ul>
           <li>Clear negative correlation: as resting heart rate increases, light sleep duration tends to decrease.</li>
           <li>Recovery score gradients indicate better recovery in individuals with lower RHR and longer light sleep.</li>
-          <li>Most common RHR range: 40–60 bpm for the population sampled.</li>
+          <li>Most common RHR range is from 40–60 bpm.</li>
         </ul>
       </p>
 
