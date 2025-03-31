@@ -33,7 +33,8 @@
       <p><strong>Key Insights:</strong>
         <ul>
           <li>Light sleep is moderately correlated with HRV (0.48) and Recovery score (0.30), suggesting it plays a role in cardiovascular recovery.</li>
-          <li>Resting heart rate and Workout Avg HR show strong negative correlations with HRV and several sleep metrics, indicating that higher heart strain may lead to lower recovery and sleep quality.</li>
+          <li>Asleep duration and Sleep performance exhibit strong positive correlations (0.90+) with In-bed duration, reinforcing their interconnectedness in overall sleep quality.</li>
+          <li>Resting heart rate and Workout Avg HR have strong negative correlations with HRV (-0.88, -0.76) and moderate negative correlations with sleep metrics. This suggests that increased cardiovascular strain (e.g., higher resting or workout heart rate) may negatively impact sleep quality and recovery.</li>
         </ul>
       </p>
 
@@ -69,16 +70,12 @@
 
       <!-- Figure 4 -->
       <h3>Figure 4: </h3>
+
       <div class="image-rows">
         <div class="image-frame-dark">
           <img src="5.png" alt="Zone 5 Sleep Stage Averages">
         </div>
-      </div>
 
-      <!-- Figure 5 -->
-      <h3>Figure 5:</h3>
-      <div style="display: flex; justify-content: center; margin: 20px 0;">
-        <iframe src="graph4.html" width="100%" height="600" style="border:none; border-radius: 8px;"></iframe>
       </div>
       <p>This visualization shows how HRV varies depending on whether someone’s REM, Deep, or Light sleep percentage was classified as Below Normal, Normal, or Above Normal.</p>
       <p><strong>Key Insights:</strong>
@@ -86,6 +83,23 @@
           <li>REM: HRV is lowest when REM is above normal — possibly a sign of imbalance or overcompensation.</li>
           <li>Deep: HRV is lowest in Above Normal groups — suggesting more is not always better.</li>
           <li>Light: HRV is highest when light sleep is above normal, supporting its link to recovery.</li>
+        </ul>
+      </p>
+
+      <!-- Figure 5 -->
+      <h3>Figure 5:</h3>
+
+      <div style="display: flex; justify-content: center; margin: 20px 0;">
+        <iframe src="graph4.html" width="100%" height="600" style="border:none; border-radius: 8px;"></iframe>
+      </div>
+
+      <p><strong>Purpose and Methodology Behind the Visualization:</strong> This grouped bar chart examines the relationship between time spent in different heart rate zones and subsequent sleep quality metrics to further break down the different sleep stages. The visualization was designed to quantify how exercise intensity (represented by heart rate zones) affects the duration of different sleep stages. Each heart rate zone represents increasing exercise intensity, with Zone 1 being the lowest intensity and Zone 5 being the highest.</p>
+      <p><strong>What It Shows & Design Ideas:</strong> The chart displays the average sleep duration (in minutes) for three distinct sleep stages—REM, Deep (SWS), and Light sleep—across five heart rate zones. Each zone on the x-axis represents a specific heart rate intensity level experienced during physical activity. The y-axis measures the average sleep duration in minutes. Color coding distinguishes between sleep stages: blue for REM sleep, purple for Deep sleep, and mint green for Light sleep. The interactive feature allows users to isolate and examine individual sleep stages for more detailed analysis.</p>
+      <p><strong>Key Insights:</strong>
+        <ul>
+          <li>High-intensity exercise (Zone 5) appears to have the most dramatic effect on sleep architecture, significantly increasing Light sleep duration (approximately 295 minutes) compared to other zones (which average around 245 minutes).</li>
+          <li>Deep sleep (SWS) shows a notable increase in Zone 5 (around 105 minutes) compared to lower intensity zones (averaging 85-90 minutes), suggesting high-intensity exercise may promote greater recovery during sleep.</li>
+          <li>REM sleep remains relatively stable across Zones 1-3 (approximately 85 minutes), with slight increases in Zones 4 and 5 (95 minutes), indicating that higher intensity exercise may modestly enhance REM sleep duration.</li>
         </ul>
       </p>
 
