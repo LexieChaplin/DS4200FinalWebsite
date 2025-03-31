@@ -59,12 +59,15 @@
       <div style="display: flex; justify-content: center; margin: 20px 0;">
         <iframe src="graph3.html" width="100%" height="600" style="border:none; border-radius: 8px;"></iframe>
       </div>
-      <p>This visualization was created to explore the relationship between heart rate variability (HRV) and light sleep duration, with the added dimension of recovery score % shown through color intensity.</p>
+
+      <p><strong>Purpose and Methodology Behind the Visualization:</strong> This scatter plot examines the relationship between Heart Rate Variability (HRV) and Light Sleep Duration, with Recovery Score integrated as a third variable through color encoding. The visualization aims to identify potential patterns in how parasympathetic nervous system activity (represented by HRV) relates to sleep architecture and overall recovery. Data points represent individual sleep sessions, capturing the natural variation across multiple nights. </p>
+      <p><strong>What It Shows & Design Ideas:</strong> 
+        The scatter plot positions Heart Rate Variability (HRV) on the x-axis (ranging from 0 to 130 ms) and Light Sleep Duration on the y-axis (0 to 500 minutes). Each point represents a single night's data, with the color intensity indicating the Recovery Score percentage—lighter blue points represent lower recovery scores, while darker blue points indicate higher recovery. The grid overlay aids in precise value estimation, and the interactive filtering option at the bottom allows users to isolate data by specific Recovery Score values (ranging from 10 to 100%).</p>
       <p><strong>Key Insights from the Chart:</strong>
         <ul>
-          <li>Positive trend between HRV and light sleep — higher HRV is linked to more light sleep.</li>
-          <li>Higher recovery scores cluster in the top-right (higher HRV and more light sleep).</li>
-          <li>Light sleep may be a meaningful contributor to overnight cardiovascular recovery.</li>
+          <li>The data suggests a moderate positive correlation between HRV and Light Sleep Duration, with higher HRV values (60-100 ms) generally associated with increased Light Sleep Duration (250-350 minutes).</li>
+          <li>Higher recovery scores (darker blue points) tend to cluster in the mid-to-high HRV range (50-100 ms), suggesting that improved parasympathetic nervous system activity corresponds with better recovery outcomes.</li>
+          <li>The highest density of data points appears in the 40-80 ms HRV range and 150-350 minutes Light Sleep range, representing the most common physiological patterns observed in this dataset.</li>
         </ul>
       </p>
 
@@ -75,8 +78,14 @@
         <div class="image-frame-dark">
           <img src="5.png" alt="Zone 5 Sleep Stage Averages">
         </div>
-
       </div>
+      
+      <div class="image-rows">
+        <div class="image-frame-dark">
+          <img src="5.1.png" alt="Zone 5 Sleep Stage Averages">
+        </div>
+      </div>
+      
       <p>This visualization shows how HRV varies depending on whether someone’s REM, Deep, or Light sleep percentage was classified as Below Normal, Normal, or Above Normal.</p>
       <p><strong>Key Insights:</strong>
         <ul>
