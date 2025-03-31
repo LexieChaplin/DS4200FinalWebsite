@@ -119,12 +119,13 @@
           <img src="7.png" alt="HRV Sleep Stage Groups">
         </div>
       </div>
-      <p>This chart uses a Random Forest model to predict how time spent in HR Zone 5 (high-intensity cardio) influences the duration of REM, Deep, and Light sleep.</p>
+     <p><strong>Purpose and Methodology Behind the Visualization:</strong> This figure was created to explore how time spent in heart rate zone 5 (the highest-intensity training zone) impacts predicted sleep duration across different stages: REM, deep (SWS), and light sleep. We first had to multiply the total duration of time spent in a workout by the percent of time spent in zone 5. We filtered the dataset to only include rows where Zone 5 cardio time is greater than 0, so the regression is based on times people actually hit Zone 5 cardio. From our data, the longest time spent in zone 5 was 65 minutes, however, the average time spent (of the times people hit Zone 5) was only 3 minutes. Therefore, we used a random forest model predict sleep durations based on the number of minutes spent in zone 5. We wanted to predict past the average of 3 minutes, because even the 4th quartile of the data was only at 4.4 minutes. This approach allows for capturing nonlinear relationships between exercise intensity and sleep outcomes and allows to see what could happen to their sleep stages if people increased their zone 5 cardio duration.  By plotting sleep stages as separate curves, we can evaluate how time in zone 5 uniquely influences each stage of sleep.<p/>
+      <p><strong>What It Shows & Design Ideas:</strong> This line plot illustrates how predicted sleep durations for REM, deep, and light sleep change as time in zone 5 increases. Each line corresponds to a sleep stage, and the plot clearly highlights optimal or inflection points where small increases in zone 5 training lead to spikes or drops in sleep duration. We also added highlighted annotations to draw attention to what duration of Zone 5 cardio corresponds to the optimal duration of sleep for each stage. We kept a consistent color scheme whenever referencing REM, deep, and light sleep to maintain uniformity. We also chose the purples, teals and blues to keep that calming sleep vibe. <p\>
       <p><strong>Key Insights:</strong>
         <ul>
-          <li>~10–11 minutes of Zone 5 activity optimized REM and Deep sleep.</li>
-          <li>Light sleep peaked around 6 minutes, but plateaued with more.</li>
-          <li>Too much Zone 5 time may reduce sleep duration in some stages — indicating a "sweet spot."</li>
+          <li>Light sleep duration appears to benefit most from around 16 minutes of Zone 5 cardio</li>
+          <li>REM and deep sleep appears to benefit most from 11-12 minutes of Zone 5 cardio.</li>
+          <li>These results support the idea from scientific studies that people should be aiming to get around 10-15 minutes of Zone 5 cardio to maintain brain and physical health.</li>
         </ul>
       </p>
 
