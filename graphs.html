@@ -72,28 +72,22 @@
       </p>
 
       <!-- Figure 4 -->
-      <h3>Figure 4: </h3>
+      <h3>Figure 4: </h3>
 
-      <div class="image-rows">
-        <div class="image-frame-dark">
-          <img src="5.png" alt="Zone 5 Sleep Stage Averages">
-        </div>
-      </div>
-      
-      <div class="image-rows">
-        <div class="image-frame-dark">
-          <img src="5.1.png" alt="Zone 5 Sleep Stage Averages">
-        </div>
-      </div>
-      
-      <p>This visualization shows how HRV varies depending on whether someone’s REM, Deep, or Light sleep percentage was classified as Below Normal, Normal, or Above Normal.</p>
-      <p><strong>Key Insights:</strong>
-        <ul>
-          <li>REM: HRV is lowest when REM is above normal — possibly a sign of imbalance or overcompensation.</li>
-          <li>Deep: HRV is lowest in Above Normal groups — suggesting more is not always better.</li>
-          <li>Light: HRV is highest when light sleep is above normal, supporting its link to recovery.</li>
-        </ul>
-      </p>
+      <div id="boxplot"></div>
+    
+      <script src='https://d3js.org/d3.v7.min.js'></script>
+      <script src='bar_chart1.js'></script> 
+      
+      <p><strong>Purpose and Methodology Behind the Visualization:</strong>This box plot visualization examines the relationship between Heart Rate Variability (HRV) and sleep stage proportions across three classification groups. The analysis aims to understand how autonomic nervous system function (as measured by HRV) varies when individuals experience different distributions of sleep stages relative to typical norms. Data was categorized into "Below Normal," "Normal," and "Above Normal" groups based on the percentage of time spent in each sleep stage.</p>
+      <p><strong>What It Shows & Design Ideas:</strong> The visualization presents box plots of HRV values (y-axis, measured in milliseconds) across three sleep stage classification groups (x-axis). Each classification group contains three color-coded box plots representing different sleep stages: blue for REM sleep, purple for Deep sleep, and mint green for Light sleep. The box plots display the median (horizontal line), interquartile range (colored box), distribution range (whiskers), and outliers (individual circles). This design enables comparison of HRV distributions both within and across sleep stage proportion categories.</p>
+      <p><strong>Key Insights:</strong>
+        <ul>
+          <li>Light sleep shows the most dramatic HRV variation across classification groups, with significantly lower median HRV (approximately 45 ms) in the "Below Normal" group compared to the "Above Normal" group (approximately 68 ms), suggesting that insufficient light sleep may correspond with reduced autonomic nervous system function.</li>
+          <li>For both REM and Deep sleep, the "Below Normal" group shows higher median HRV values (approximately 68 ms) than the "Above Normal" group (approximately 48 ms), indicating a potential inverse relationship between these sleep stages and autonomic regulation.</li>
+          <li>The "Normal" classification shows relatively consistent median HRV values across all three sleep stages (50-65 ms), suggesting balanced autonomic function when sleep architecture follows typical patterns.</li>
+        </ul>
+      </p>
 
       <!-- Figure 5 -->
       <h3>Figure 5:</h3>
