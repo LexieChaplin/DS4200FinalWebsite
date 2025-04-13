@@ -49,8 +49,7 @@ function createBoxPlot(data) {
         .tickSize(-(height - margin.top - margin.bottom))
         .tickFormat("")
       )
-      .style("stroke", "#e0e0e0")
-      .style("opacity", 0.7);
+      .style("stroke", "#e0e0e0");
   
     svg.selectAll(".grid line")
       .style("stroke", "#e0e0e0");
@@ -151,8 +150,7 @@ function createBoxPlot(data) {
             .attr("height", y(stats.q1) - y(stats.q3))
             .attr("fill", color(groupType))
             .attr("stroke", "black")
-            .attr("stroke-width", 1)
-            .attr("opacity", 0.7);
+            .attr("stroke-width", 1);
           
           // Draw median line
           svg.append("line")
@@ -160,8 +158,7 @@ function createBoxPlot(data) {
             .attr("x2", xPos + boxWidth)
             .attr("y1", y(stats.median))
             .attr("y2", y(stats.median))
-            .attr("stroke", "black")
-            .attr("stroke-width", 2);
+            .attr("stroke", "black");
           
           // Draw whisker ends (horizontal lines)
           svg.append("line")
@@ -212,8 +209,7 @@ function createBoxPlot(data) {
         .attr("y", i * 25 + 5)
         .attr("width", 18)
         .attr("height", 18)
-        .attr("fill", color(groupType))
-        .attr("opacity", 0.7);
+        .attr("fill", color(groupType));
       
       legend.append("text")
         .attr("x", 25)
