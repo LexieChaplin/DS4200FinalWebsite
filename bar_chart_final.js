@@ -18,27 +18,27 @@ function createBoxPlot(data) {
       .style("background", "#ffffff");
   
     // Get unique sleep stages and group types
-    const groupTypes = ["Below Normal", "Normal", "Above Normal"];
     const sleepStages = ["Light", "Deep", "REM"];
+    const groupTypes = ["Below Normal", "Normal", "Above Normal"];
     
     // Create scales
-    // X scale for group types
+    // X scale for sleep stages
     const x = d3.scaleBand()
-      .domain(groupTypes)
+      .domain(sleepStages)
       .range([margin.left, width - margin.right])
       .padding(0.2);
     
     // Calculate the width of each box plot
-    const boxWidth = x.bandwidth() / sleepStages.length - 4;
+    const boxWidth = x.bandwidth() / groupTypes.length - 4;
     
     // Y scale for heart rate variability
     const y = d3.scaleLinear()
       .domain([10, 120]) // Set fixed range based on reference image
       .range([height - margin.bottom, margin.top]);
     
-    // Color scale for sleep stages
+    // Color scale for group types
     const color = d3.scaleOrdinal()
-      .domain(sleepStages)
+      .domain(groupTypes)
       .range(["#78a3c3", "#9f86c0", "#8ecfca"]);
   
     // Add grid lines
@@ -87,7 +87,7 @@ function createBoxPlot(data) {
       .attr("text-anchor", "middle")
       .style("font-family", "Helvetica")
       .style("font-size", "14px")
-      .text("Sleep Stage Group Type");
+      .text("Sleep Stage");
     
     // Add Y axis label
     svg.append("text")
@@ -119,20 +119,20 @@ function createBoxPlot(data) {
       return { min, q1, median, q3, max, lowerWhisker, upperWhisker, outliers };
     }
   
-    // Group data by Group Type and Sleep Stage
-    const nestedData = d3.group(data, d => d.Group_Type, d => d.Sleep_Stage);
+    // Group data by Sleep Stage and Group Type
+    const nestedData = d3.group(data, d => d.Sleep_Stage, d => d.Group_Type);
     
     // Draw box plots
-    groupTypes.forEach((groupType, groupIndex) => {
-      sleepStages.forEach((stage, stageIndex) => {
-        const groupData = nestedData.get(groupType)?.get(stage);
+    sleepStages.forEach((stage, stageIndex) => {
+      groupTypes.forEach((groupType, groupIndex) => {
+        const groupData = nestedData.get(stage)?.get(groupType);
         
         if (groupData && groupData.length > 0) {
           const values = groupData.map(d => d.Heart_rate_variability_ms);
           const stats = calculateStats(values);
           
           // Calculate x position for this specific box
-          const xPos = x(groupType) + (stageIndex * (x.bandwidth() / sleepStages.length));
+          const xPos = x(stage) + (groupIndex * (x.bandwidth() / groupTypes.length));
           
           // Draw vertical line (from lower whisker to upper whisker)
           svg.append("line")
@@ -149,7 +149,7 @@ function createBoxPlot(data) {
             .attr("y", y(stats.q3))
             .attr("width", boxWidth)
             .attr("height", y(stats.q1) - y(stats.q3))
-            .attr("fill", color(stage))
+            .attr("fill", color(groupType))
             .attr("stroke", "black")
             .attr("stroke-width", 1)
             .attr("opacity", 0.7);
@@ -201,24 +201,24 @@ function createBoxPlot(data) {
     legend.append("text")
       .attr("x", 0)
       .attr("y", -10)
-      .text("Sleep Stage")
+      .text("Group Type")
       .style("font-family", "Helvetica")
       .style("font-size", "14px")
       .style("font-weight", "bold");
     
-    sleepStages.forEach((stage, i) => {
+    groupTypes.forEach((groupType, i) => {
       legend.append("rect")
         .attr("x", 0)
         .attr("y", i * 25 + 5)
         .attr("width", 18)
         .attr("height", 18)
-        .attr("fill", color(stage))
+        .attr("fill", color(groupType))
         .attr("opacity", 0.7);
       
       legend.append("text")
         .attr("x", 25)
         .attr("y", i * 25 + 18)
-        .text(stage)
+        .text(groupType)
         .style("font-family", "Helvetica")
         .style("font-size", "14px");
     });
