@@ -39,7 +39,7 @@ function createBoxPlot(data) {
     // Color scale for group types
     const color = d3.scaleOrdinal()
       .domain(groupTypes)
-      .range(["#78a3c3", "#9f86c0", "#8ecfca"]);
+      .range(["#A9CCE3", "#5499C7", "#1A5276"]);
   
     // Add grid lines
     svg.append("g")
@@ -60,7 +60,7 @@ function createBoxPlot(data) {
       .call(d3.axisBottom(x))
       .selectAll("text")
       .style("font-family", "Helvetica")
-      .style("font-size", "12px");
+      .style("font-size", "16px");
     
     // Add Y axis
     svg.append("g")
@@ -68,7 +68,7 @@ function createBoxPlot(data) {
       .call(d3.axisLeft(y))
       .selectAll("text")
       .style("font-family", "Helvetica")
-      .style("font-size", "12px");
+      .style("font-size", "16px");
     
     // Add title
     svg.append("text")
@@ -76,7 +76,7 @@ function createBoxPlot(data) {
       .attr("y", margin.top / 2)
       .attr("text-anchor", "middle")
       .style("font-family", "Helvetica")
-      .style("font-size", "18px")
+      .style("font-size", "24px")
       .text("HRV by Sleep Stage % Classification");
     
     // Add X axis label
@@ -85,7 +85,7 @@ function createBoxPlot(data) {
       .attr("y", height - margin.bottom / 3)
       .attr("text-anchor", "middle")
       .style("font-family", "Helvetica")
-      .style("font-size", "14px")
+      .style("font-size", "16px")
       .text("Sleep Stage");
     
     // Add Y axis label
@@ -95,7 +95,7 @@ function createBoxPlot(data) {
       .attr("y", margin.left / 3)
       .attr("text-anchor", "middle")
       .style("font-family", "Helvetica")
-      .style("font-size", "14px")
+      .style("font-size", "16px")
       .text("HRV");
   
     // Function to calculate box plot statistics

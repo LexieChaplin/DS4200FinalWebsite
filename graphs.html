@@ -22,14 +22,13 @@
       <h2>Our Visualizations</h2>
 
       <!-- Figure 1 -->
-      <h3>Figure 1:</h3>
+      <h3>Figure 1: Correlation Heatmap Highlighting Sleep-Related Variables</h3>
       <div class="image-rows">
         <div class="image-frame-dark">
-          <img src="2.png" alt="Correlation Heatmap">
+          <img src="graph1.png" alt="Correlation Heatmap">
         </div>
       </div>
       <p><strong>Purpose and Methodology Behind the Visualization:</strong> This heatmap was created to identify which metrics are most relevant and impactful to sleep-related factors, helping guide the focus for later visualizations and modeling. Before generating the heatmap, we first calculated the correlations between all available variables and filtered for those with a correlation coefficient greater than ±0.6. From there, we narrowed the selection further to specifically get variables directly related to sleep quality and recovery.</p>
-      <p><strong>What It Shows & Design Ideas:</strong> Stronger correlations are shaded darker red (positive) or blue (negative). Sleep-related variables (like Light sleep, Asleep duration, and Sleep performance) are highlighted in purple on the axis labels. Cardiovascular indicators like Heart rate variability (HRV), Resting heart rate, and Workout Avg HR were compared to these sleep metrics.</p>
       <p><strong>Key Insights:</strong>
         <ul>
           <li>Light sleep is moderately correlated with HRV (0.48) and Recovery score (0.30), suggesting it plays a role in cardiovascular recovery.</li>
@@ -38,32 +37,23 @@
         </ul>
       </p>
 
-      <!-- Figure 2 (Altair interactive) -->
-      <h3>Figure 2: </h3>
+
+      <!-- Figure 2 (Combined Altair interactive) -->
+      <h3>Figure 2: Light Sleep Duration vs. Resting Heart Rate and Heart Rate Variability</h3>
       <div style="display: flex; justify-content: center; margin: 20px 0;">
         <iframe src="graph2.html" width="100%" height="600" style="border:none; border-radius: 8px;"></iframe>
       </div>
-      <p><strong>Purpose and Methodology Behind the Visualization:</strong>  We chose to focus on light sleep because the heat map showed a correlation between RHR and light sleep duration. According to research from WHOOP, light sleep is the stage where your body begins to relax: muscles loosen, body temperature drops, and brain activity slows. This stage plays a crucial role supporting memory consolidation, motor skill learning, and emotional regulation. Chronic deficiencies of light sleep have been associated with high blood pressure, heart disease, obesity, and depression. In parallel, resting heart rate is a well-established marker of cardiovascular efficiency and general fitness. Lower RHR values often indicate a stronger, more efficient heart, while elevated RHR is commonly associated with stress and overtraining. </p>
-      <p><strong>What It Shows & Design Ideas:</strong> 
-        The goal of this interactive scatterplot was to show three important physiological factors in a single view for easy pattern recognition. The scatterplot layout emphasizes the negative correlation between RHR and light sleep. The blue colors, are calming like sleep, and were intentionally selected for recovery score. Darker shades show higher recovery scores and help the viewer quickly see attribute better recovery with longer light sleep and lower resting heart rates. We chose to do radio binding so that people could explore the recovery scores individually.</p>
-      <p><strong>Key Insights from the Chart:</strong>
+
+      <p><strong>Purpose and Methodology Behind the Visualization:</strong> We chose to focus on light sleep because the heat map showed a correlation between Resting Heart Rate (RHR) and light sleep duration. According to research from WHOOP, light sleep is the stage where your body begins to relax: muscles loosen, body temperature drops, and brain activity slows. This stage plays a crucial role supporting memory consolidation, motor skill learning, and emotional regulation. Chronic deficiencies of light sleep have been associated with high blood pressure, heart disease, obesity, and depression. In parallel, resting heart rate is a well-established marker of cardiovascular efficiency and general fitness. Lower RHR values often indicate a stronger, more efficient heart, while elevated RHR is commonly associated with stress and overtraining. </p>
+      <p>Additionally examining the relationship between Heart Rate Variability (HRV) and Light Sleep Duration aims to identify potential patterns in how parasympathetic nervous system activity (represented by HRV) relates to sleep architecture and overall recovery. Data points represent individual sleep sessions, capturing the natural variation across multiple nights. </p>
+      <p><strong>Key Insights from RHR and Light Sleep Duration:</strong>
         <ul>
           <li>Clear negative correlation: as resting heart rate increases, light sleep duration tends to decrease.</li>
           <li>Recovery score gradients indicate better recovery in individuals with lower RHR and longer light sleep.</li>
           <li>Most common RHR range is from 40–60 bpm.</li>
         </ul>
       </p>
-
-      <!-- Figure 3 (Altair interactive) -->
-      <h3>Figure 3: </h3>
-      <div style="display: flex; justify-content: center; margin: 20px 0;">
-        <iframe src="graph3.html" width="100%" height="600" style="border:none; border-radius: 8px;"></iframe>
-      </div>
-
-      <p><strong>Purpose and Methodology Behind the Visualization:</strong> This scatter plot examines the relationship between Heart Rate Variability (HRV) and Light Sleep Duration, with Recovery Score integrated as a third variable through color encoding. The visualization aims to identify potential patterns in how parasympathetic nervous system activity (represented by HRV) relates to sleep architecture and overall recovery. Data points represent individual sleep sessions, capturing the natural variation across multiple nights. </p>
-      <p><strong>What It Shows & Design Ideas:</strong> 
-        The scatter plot positions Heart Rate Variability (HRV) on the x-axis (ranging from 0 to 130 ms) and Light Sleep Duration on the y-axis (0 to 500 minutes). Each point represents a single night's data, with the color intensity indicating the Recovery Score percentage—lighter blue points represent lower recovery scores, while darker blue points indicate higher recovery. The grid overlay aids in precise value estimation, and the interactive filtering option at the bottom allows users to isolate data by specific Recovery Score values (ranging from 10 to 100%).</p>
-      <p><strong>Key Insights from the Chart:</strong>
+      <p><strong>Key Insights from HRV and Light Sleep Duration:</strong>
         <ul>
           <li>The data suggests a moderate positive correlation between HRV and Light Sleep Duration, with higher HRV values (60-100 ms) generally associated with increased Light Sleep Duration (250-350 minutes).</li>
           <li>Higher recovery scores (darker blue points) tend to cluster in the mid-to-high HRV range (50-100 ms), suggesting that improved parasympathetic nervous system activity corresponds with better recovery outcomes.</li>
@@ -71,8 +61,9 @@
         </ul>
       </p>
 
-      <!-- Figure 4 -->
-      <h3>Figure 4: </h3>
+
+      <!-- Figure 3 -->
+      <h3>Figure 3: HRV by Sleep Stage % Classification  </h3>
 
       <div id="boxplot"></div>
     
@@ -80,7 +71,6 @@
       <script src='bar_chart_final.js'></script> 
       
       <p><strong>Purpose and Methodology Behind the Visualization:</strong>This box plot visualization examines the relationship between Heart Rate Variability (HRV) and sleep stage proportions across three classification groups. The analysis aims to understand how autonomic nervous system function (as measured by HRV) varies when individuals experience different distributions of sleep stages relative to typical norms. Data was categorized into "Below Normal," "Normal," and "Above Normal" groups based on the percentage of time spent in each sleep stage.</p>
-      <p><strong>What It Shows & Design Ideas:</strong> The visualization presents box plots of HRV values (y-axis, measured in milliseconds) across three sleep stage classification groups (x-axis). Each classification group contains three color-coded box plots representing different sleep stages: blue for REM sleep, purple for Deep sleep, and mint green for Light sleep. The box plots display the median (horizontal line), interquartile range (colored box), distribution range (whiskers), and outliers (individual circles). This design enables comparison of HRV distributions both within and across sleep stage proportion categories.</p>
       <p><strong>Key Insights:</strong>
         <ul>
           <li>Light sleep shows the most dramatic HRV variation across classification groups, with significantly lower median HRV (approximately 45 ms) in the "Below Normal" group compared to the "Above Normal" group (approximately 68 ms), suggesting that insufficient light sleep may correspond with reduced autonomic nervous system function.</li>
@@ -89,15 +79,15 @@
         </ul>
       </p>
 
-      <!-- Figure 5 -->
-      <h3>Figure 5:</h3>
+
+      <!-- Figure 4 -->
+      <h3>Figure 4: Average Sleep Duration by Zone and Sleep Stage</h3>
 
       <div style="display: flex; justify-content: center; margin: 20px 0;">
         <iframe src="graph4.html" width="100%" height="600" style="border:none; border-radius: 8px;"></iframe>
       </div>
 
       <p><strong>Purpose and Methodology Behind the Visualization:</strong> This grouped bar chart examines the relationship between time spent in different heart rate zones and subsequent sleep quality metrics to further break down the different sleep stages. The visualization was designed to quantify how exercise intensity (represented by heart rate zones) affects the duration of different sleep stages. Each heart rate zone represents increasing exercise intensity, with Zone 1 being the lowest intensity and Zone 5 being the highest.</p>
-      <p><strong>What It Shows & Design Ideas:</strong> The chart displays the average sleep duration (in minutes) for three distinct sleep stages—REM, Deep (SWS), and Light sleep—across five heart rate zones. Each zone on the x-axis represents a specific heart rate intensity level experienced during physical activity. The y-axis measures the average sleep duration in minutes. Color coding distinguishes between sleep stages: blue for REM sleep, purple for Deep sleep, and mint green for Light sleep. The interactive feature allows users to isolate and examine individual sleep stages for more detailed analysis.</p>
       <p><strong>Key Insights:</strong>
         <ul>
           <li>High-intensity exercise (Zone 5) appears to have the most dramatic effect on sleep architecture, significantly increasing Light sleep duration (approximately 295 minutes) compared to other zones (which average around 245 minutes).</li>
@@ -106,15 +96,17 @@
         </ul>
       </p>
 
-      <!-- Figure 6 -->
-      <h3>Figure 6:</h3>
+
+      <!-- Figure 5 -->
+      <h3>Figure 5: Random Forest Predication of Sleep Duration for Time in Zone 5
+      </h3>
       <div class="image-rows">
         <div class="image-frame-dark">
-          <img src="7.png" alt="HRV Sleep Stage Groups">
+          <img src="graph5.png" alt="HRV Sleep Stage Groups">
         </div>
       </div>
-     <p><strong>Purpose and Methodology Behind the Visualization:</strong> This figure was created to explore how time spent in heart rate zone 5 (the highest-intensity training zone) impacts predicted sleep duration across different stages: REM, deep (SWS), and light sleep. We first had to multiply the total duration of time spent in a workout by the percent of time spent in zone 5. We filtered the dataset to only include rows where Zone 5 cardio time is greater than 0, so the regression is based on times people actually hit Zone 5 cardio. From our data, the longest time spent in zone 5 was 65 minutes, however, the average time spent (of the times people hit Zone 5) was only 3 minutes. Therefore, we used a random forest model predict sleep durations based on the number of minutes spent in zone 5. We wanted to predict past the average of 3 minutes, because even the 4th quartile of the data was only at 4.4 minutes. This approach allows for capturing nonlinear relationships between exercise intensity and sleep outcomes and allows to see what could happen to their sleep stages if people increased their zone 5 cardio duration.  By plotting sleep stages as separate curves, we can evaluate how time in zone 5 uniquely influences each stage of sleep.<p/>
-      <p><strong>What It Shows & Design Ideas:</strong> This line plot illustrates how predicted sleep durations for REM, deep, and light sleep change as time in zone 5 increases. Each line corresponds to a sleep stage, and the plot clearly highlights optimal or inflection points where small increases in zone 5 training lead to spikes or drops in sleep duration. We also added highlighted annotations to draw attention to what duration of Zone 5 cardio corresponds to the optimal duration of sleep for each stage. We kept a consistent color scheme whenever referencing REM, deep, and light sleep to maintain uniformity. We also chose the purples, teals and blues to keep that calming sleep vibe. <p\>
+     <p><strong>Purpose and Methodology Behind the Visualization:</strong> This figure was created to explore how time spent in heart rate zone 5 (the highest-intensity training zone) impacts predicted sleep duration across different stages: REM, deep, and light sleep. We first had to multiply the total duration of time spent in a workout by the percent of time spent in zone 5. We filtered the dataset to only include rows where Zone 5 cardio time is greater than 0, so the regression is based on times people actually hit Zone 5 cardio. From our data, the longest time spent in zone 5 was 65 minutes, however, the average time spent (of the times people hit Zone 5) was only 3 minutes. Therefore, we used a Random Forest model to predict sleep durations based on the number of minutes spent in zone 5.<p/>
+      <p>The Random Forest model is machine learning method that combines multiple decision trees to improve prediction accuracy and capture nonlinear relationships between variables. It was fit using RHR and Light Sleep Duration, which were identified as key predictors of sleep patterns. The model was trained on historical data, where the relationship between Zone 5 time, RHR, and sleep durations was established. This allows us to identify nonlinear relationships between exercise intensity and sleep outcomes, as well as, predict beyond the average of 3 minutes, as even the 4th quartile of the data was only at 4.4 minutes. By plotting sleep stages as separate curves, we can evaluate how time in zone 5 uniquely influences each stage of sleep.</p>
       <p><strong>Key Insights:</strong>
         <ul>
           <li>Light sleep duration appears to benefit most from around 16 minutes of Zone 5 cardio</li>
