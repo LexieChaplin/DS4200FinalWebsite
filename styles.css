@@ -1,6 +1,6 @@
 /* styles.css */
 
-/* Global Styles */
+/* global styles */
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +17,7 @@
     padding: 0 20px;
   }
   
-  /* Header Styles */
+  /* header styles */
   header {
     background: linear-gradient(135deg, #2c3e50, #1e5799);
     color: white;
@@ -35,7 +35,7 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   }
   
-  /* Navigation */
+  /* navigation */
   nav {
     display: flex;
     justify-content: center;
@@ -63,7 +63,7 @@
     font-weight: 600;
   }
 
-  /*Borders for images*/
+  /* borders for images*/
   .image-row {
     background-color: #2c3e50;
     display: flex;
@@ -82,7 +82,7 @@
   }
   .image-frame-dark,
 .image-frame-light {
-  padding: 20px; /* simulates the 1-inch frame */
+  padding: 20px;
   border-radius: 12px;
   margin: 20px;
   display: flex;
@@ -126,7 +126,7 @@
   display: block;
   border-radius: 8px;
 }
-  /* Main Content */
+  /* main content */
   main {
     background-color: white;
     padding: 30px;
@@ -134,7 +134,7 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   }
   
-  /* Section Styles */
+  /* section styles */
   section {
     margin-bottom: 40px;
     padding-bottom: 30px;
@@ -146,7 +146,7 @@
     margin-bottom: 0;
   }
   
-  /* Headings */
+  /* headings */
   h2 {
     color: #2c3e50;
     font-size: 2rem;
@@ -163,7 +163,7 @@
     text-align: left;
   }
   
-  /* Paragraphs */
+  /* paragraphs */
   p {
     margin-bottom: 16px;
     font-size: 1.05rem;
@@ -174,7 +174,7 @@
     font-weight: 500;
   }
   
-  /* Lists */
+  /* lists */
   ul {
     margin: 15px 0 15px 25px;
   }
@@ -185,7 +185,7 @@
     font-size: 1.05rem;
   }
   
-  /* Code */
+  /* code */
   code {
     background-color: #f7f9fb;
     padding: 2px 6px;
@@ -195,7 +195,7 @@
     font-size: 0.95rem;
   }
   
-  /* Links */
+  /* links */
   a {
     color: #3498db;
     text-decoration: none;
@@ -207,13 +207,13 @@
     text-decoration: underline;
   }
   
-  /* Special elements */
+  /* special elements */
   strong {
     color: #e74c3c;
     font-weight: 600;
   }
   
-  /* Quote styling */
+  /* quote styling */
   p em {
     display: block;
     font-style: italic;
@@ -223,7 +223,6 @@
     color: #555;
   }
   
-  /* Responsive Design */
   @media (max-width: 768px) {
     header h1 {
       font-size: 2rem;
@@ -267,7 +266,7 @@
     }
   }
   
-  /* Additional Styling Elements */
+  /* additional styling elements */
   .data-highlight {
     background-color: #f1f8ff;
     border: 1px solid #d1e5f9;
@@ -287,7 +286,7 @@
     font-size: 0.9rem;
     color: #777;
   }
-    /* Simple Gallery Styles */
+    /* simple gallery styles */
     .simple-gallery {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
