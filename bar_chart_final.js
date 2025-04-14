@@ -1,6 +1,6 @@
-// Function to create the boxplot
+
 function createBoxPlot(data) {
-    // Define dimensions and margins
+    // dimensions and margins
     const width = 900;
     const height = 600;
     const margin = {
@@ -10,38 +10,38 @@ function createBoxPlot(data) {
       left: 80
     };
   
-    // Create SVG container
+    // SVG container
     const svg = d3.select("#boxplot")
       .append("svg")
       .attr("width", width)
       .attr("height", height)
       .style("background", "#ffffff");
   
-    // Get unique sleep stages and group types
+    // unique sleep stages and group types
     const sleepStages = ["Light", "Deep", "REM"];
     const groupTypes = ["Below Normal", "Normal", "Above Normal"];
     
-    // Create scales
+    // scales
     // X scale for sleep stages
     const x = d3.scaleBand()
       .domain(sleepStages)
       .range([margin.left, width - margin.right])
       .padding(0.2);
     
-    // Calculate the width of each box plot
+    // box plot width
     const boxWidth = x.bandwidth() / groupTypes.length - 4;
     
     // Y scale for heart rate variability
     const y = d3.scaleLinear()
-      .domain([10, 120]) // Set fixed range based on reference image
+      .domain([10, 120])
       .range([height - margin.bottom, margin.top]);
     
-    // Color scale for group types
+    // color scale for group types
     const color = d3.scaleOrdinal()
       .domain(groupTypes)
       .range(["#A9CCE3", "#5499C7", "#1A5276"]);
   
-    // Add grid lines
+    // grid lines
     svg.append("g")
       .attr("class", "grid")
       .attr("transform", `translate(0, ${height - margin.bottom})`)
@@ -54,7 +54,7 @@ function createBoxPlot(data) {
     svg.selectAll(".grid line")
       .style("stroke", "#e0e0e0");
   
-    // Add X axis
+    // X axis
     svg.append("g")
       .attr("transform", `translate(0, ${height - margin.bottom})`)
       .call(d3.axisBottom(x))
@@ -62,7 +62,7 @@ function createBoxPlot(data) {
       .style("font-family", "Helvetica")
       .style("font-size", "16px");
     
-    // Add Y axis
+    // Y axis
     svg.append("g")
       .attr("transform", `translate(${margin.left}, 0)`)
       .call(d3.axisLeft(y))
@@ -70,7 +70,7 @@ function createBoxPlot(data) {
       .style("font-family", "Helvetica")
       .style("font-size", "16px");
     
-    // Add title
+    // title
     svg.append("text")
       .attr("x", width / 2)
       .attr("y", margin.top / 2)
@@ -79,7 +79,7 @@ function createBoxPlot(data) {
       .style("font-size", "24px")
       .text("HRV by Sleep Stage % Classification");
     
-    // Add X axis label
+    // X axis label
     svg.append("text")
       .attr("x", width / 2)
       .attr("y", height - margin.bottom / 3)
@@ -88,7 +88,7 @@ function createBoxPlot(data) {
       .style("font-size", "16px")
       .text("Sleep Stage");
     
-    // Add Y axis label
+    // Y axis label
     svg.append("text")
       .attr("transform", "rotate(-90)")
       .attr("x", -(height / 2))
@@ -98,7 +98,7 @@ function createBoxPlot(data) {
       .style("font-size", "16px")
       .text("HRV");
   
-    // Function to calculate box plot statistics
+    // calculate box plot statistics
     function calculateStats(values) {
       values.sort(d3.ascending);
       
@@ -112,16 +112,15 @@ function createBoxPlot(data) {
       const upperWhisker = Math.min(max, q3 + 1.5 * iqr);
       const lowerWhisker = Math.max(min, q1 - 1.5 * iqr);
       
-      // Find outliers
       const outliers = values.filter(v => v < lowerWhisker || v > upperWhisker);
       
       return { min, q1, median, q3, max, lowerWhisker, upperWhisker, outliers };
     }
   
-    // Group data by Sleep Stage and Group Type
+    // group by Sleep Stage and Group Type
     const nestedData = d3.group(data, d => d.Sleep_Stage, d => d.Group_Type);
     
-    // Draw box plots
+    // box plots
     sleepStages.forEach((stage, stageIndex) => {
       groupTypes.forEach((groupType, groupIndex) => {
         const groupData = nestedData.get(stage)?.get(groupType);
@@ -130,10 +129,10 @@ function createBoxPlot(data) {
           const values = groupData.map(d => d.Heart_rate_variability_ms);
           const stats = calculateStats(values);
           
-          // Calculate x position for this specific box
+          // x position for this specific box
           const xPos = x(stage) + (groupIndex * (x.bandwidth() / groupTypes.length));
           
-          // Draw vertical line (from lower whisker to upper whisker)
+          // vertical line
           svg.append("line")
             .attr("x1", xPos + boxWidth / 2)
             .attr("x2", xPos + boxWidth / 2)
@@ -142,7 +141,7 @@ function createBoxPlot(data) {
             .attr("stroke", "black")
             .attr("stroke-width", 1);
           
-          // Draw box from Q1 to Q3
+          // box from Q1 to Q3
           svg.append("rect")
             .attr("x", xPos)
             .attr("y", y(stats.q3))
@@ -152,7 +151,7 @@ function createBoxPlot(data) {
             .attr("stroke", "black")
             .attr("stroke-width", 1);
           
-          // Draw median line
+          // median line
           svg.append("line")
             .attr("x1", xPos)
             .attr("x2", xPos + boxWidth)
@@ -160,7 +159,7 @@ function createBoxPlot(data) {
             .attr("y2", y(stats.median))
             .attr("stroke", "black");
           
-          // Draw whisker ends (horizontal lines)
+          // whisker ends
           svg.append("line")
             .attr("x1", xPos)
             .attr("x2", xPos + boxWidth)
@@ -177,7 +176,7 @@ function createBoxPlot(data) {
             .attr("stroke", "black")
             .attr("stroke-width", 1);
           
-          // Draw outliers as circles
+          // outliers
           stats.outliers.forEach(outlier => {
             svg.append("circle")
               .attr("cx", xPos + boxWidth / 2)
@@ -191,7 +190,7 @@ function createBoxPlot(data) {
       });
     });
   
-    // Add legend
+    // legend
     const legend = svg.append("g")
       .attr("transform", `translate(${width - margin.right + 20}, ${margin.top})`);
     
@@ -221,9 +220,9 @@ function createBoxPlot(data) {
     
   }
   
-// Initialize plot
+// plot
   d3.csv("d3_data.csv").then(function(data) {
-    // Convert string values to numbers
+    // convert string values to numbers
     data.forEach(function(d) {
       d.Heart_rate_variability_ms = +d.Heart_rate_variability_ms;
     });
